@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You, My Love</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="hearts-container" id="heartsContainer"></div>
+    
+    <div class="container">
+        <h1>For You, Serah, Akemmi</h1>
+        <p class="subtitle">Hey beautiful, I made something special just for you <span class="heart-icon">💕</span></p>
+        <button class="btn" id="openBtn">Open My Heart</button>
+    </div>
+    
+
+
+    <script>
+                // Button click handler
+        document.getElementById('openBtn').addEventListener('click', function() {
+            // Add a ripple effect
+            this.innerHTML = "Opening...";
+            this.style.transform = "scale(0.95)";
+            
+            // In a real implementation, this would navigate to the next section
+            setTimeout(() => {
+                this.innerHTML = "Open My Heart";
+                this.style.transform = "scale(1)";
+                window.location.href = "/about.html"; // Placeholder for navigation
+            }, 1500);
+        });
+
+    </script>
+    <script src="index.js"></script>
+</body>
+</html>

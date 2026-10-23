@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You, My Love</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="hearts-container" id="heartsContainer"></div>
+    <!-- Add this section after the proposal section -->
+<section class="ending-section" id="ending">
+    <div class="container">
+        <!-- Main Closing Message -->
+        <div class="closing-content">
+            <div class="final-message">
+                <p class="closing-text">This little corner of the web is yours forever</p>
+                <h1 class="main-closing">A Digital Home for Our Love</h1>
+                <p class="promise-text">I'll keep your memories safe here, always</p>
+            </div>
+
+            <!-- Animated Name Display -->
+            <div class="name-animation-container">
+                <div class="name-display" id="nameDisplay">
+                    <!-- Name will be animated here -->
+                </div>
+                <div class="heart-trail-animation"></div>
+            </div>
+
+            <!-- Final Thoughts -->
+            <div class="final-thoughts">
+                <div class="thought-bubble">
+                    <p class="thought-text">"Wherever life takes us, this will always be our special place"</p>
+                </div>
+            </div>
+
+            <!-- Interactive Elements -->
+            <div class="ending-actions">
+                <button class="memory-btn" id="addMemoryBtn">
+                    💾 Save This Moment
+                </button>
+                <button class="visit-btn" id="visitAgainBtn">
+                    🌟 Visit Anytime
+                </button>
+            </div>
+
+            <!-- Secret Message Reveal -->
+            <div class="secret-message" id="secretMessage">
+                <div class="secret-content">
+                    <p class="secret-text">P.S. I fall in love with you more every day</p>
+                    <div class="eternal-heart">💫</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Forever Promise -->
+        <div class="forever-promise">
+            <div class="promise-ring">
+                <div class="ring"></div>
+                <div class="sparkle s1">✨</div>
+                <div class="sparkle s2">✨</div>
+                <div class="sparkle s3">✨</div>
+            </div>
+            <p class="forever-text">Made with love, for eternity</p>
+        </div>
+    </div>
+
+    <!-- Magical Background Elements -->
+    <div class="magical-background">
+        <div class="floating-star">⭐</div>
+        <div class="floating-star">🌟</div>
+        <div class="floating-star">💫</div>
+        <div class="floating-star">✨</div>
+        <div class="floating-star">🌙</div>
+        <div class="floating-star">☁️</div>
+    </div>
+
+    <!-- Infinite Love Animation -->
+    <div class="infinite-love">
+        <div class="love-symbol">∞</div>
+        <div class="pulse-ring r1"></div>
+        <div class="pulse-ring r2"></div>
+        <div class="pulse-ring r3"></div>
+    </div>
+</section>
+
+<style>
+    /* Ending Section Styles */
+    .ending-section {
+        padding: 6rem 2rem;
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        color: white;
+    }
+
+    .ending-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: 
+            radial-gradient(circle at 20% 30%, rgba(255, 126, 179, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 80% 70%, rgba(255, 192, 203, 0.1) 0%, transparent 50%),
+            url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></svg>');
+        background-size: cover, cover, 200px 200px;
+        animation: twinkle 20s linear infinite;
+        pointer-events: none;
+    }
+
+    .closing-content {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+    }
+
+    /* Closing Text Animations */
+    .closing-text {
+        font-size: 1.4rem;
+        color: #ffb6c1;
+        margin-bottom: 1.5rem;
+        font-weight: 300;
+        font-style: italic;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 1s ease forwards 0.5s;
+    }
+
+    .main-closing {
+        font-family: 'Dancing Script', cursive;
+        font-size: 4rem;
+        background: linear-gradient(135deg, #ffb6c1, #ff69b4, #ff1493);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 2rem;
+        line-height: 1.2;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 1s ease forwards 1s;
+        text-shadow: 0 0 30px rgba(255, 105, 180, 0.3);
+    }
+
+    .promise-text {
+        font-size: 1.3rem;
+        color: #e6e6fa;
+        margin-bottom: 4rem;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 1s ease forwards 1.5s;
+    }
+
+    /* Name Animation */
+    .name-animation-container {
+        margin: 3rem 0;
+        position: relative;
+        height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .name-display {
+        font-family: 'Dancing Script', cursive;
+        font-size: 3.5rem;
+        color: #ff69b4;
+        position: relative;
+        z-index: 2;
+    }
+
+    .name-letter {
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(50px) rotate(-10deg);
+        animation: letterReveal 0.8s ease forwards;
+        text-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+    }
+
+    .heart-trail-animation {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .trail-heart {
+        position: absolute;
+        font-size: 1.2rem;
+        opacity: 0;
+        animation: heartTrail 2s ease-out forwards;
+    }
+
+    /* Final Thoughts */
+    .final-thoughts {
+        margin: 3rem 0;
+        opacity: 0;
+        animation: fadeInUp 1s ease forwards 2.5s;
+    }
+
+    .thought-bubble {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 2rem;
+        border-radius: 30px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(20px);
+        position: relative;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .thought-bubble::before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 20px;
+        height: 20px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    }
+
+    .thought-text {
+        font-size: 1.2rem;
+        color: #e6e6fa;
+        font-style: italic;
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    /* Ending Actions */
+    .ending-actions {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        margin: 3rem 0;
+        flex-wrap: wrap;
+        opacity: 0;
+        animation: fadeInUp 1s ease forwards 3s;
+    }
+
+    .memory-btn, .visit-btn {
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 1rem 2rem;
+        border-radius: 25px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.4s ease;
+        backdrop-filter: blur(10px);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .memory-btn::before, .visit-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.6s ease;
+    }
+
+    .memory-btn:hover::before, .visit-btn:hover::before {
+        left: 100%;
+    }
+
+    .memory-btn:hover, .visit-btn:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(255, 105, 180, 0.3);
+    }
+
+    /* Secret Message */
+    .secret-message {
+        margin: 3rem 0;
+        opacity: 0;
+        transition: all 0.8s ease;
+    }
+
+    .secret-message.revealed {
+        opacity: 1;
+        animation: secretReveal 1s ease forwards;
+    }
+
+    .secret-content {
+        background: linear-gradient(135deg, rgba(255, 105, 180, 0.2), rgba(255, 20, 147, 0.1));
+        padding: 2rem;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 105, 180, 0.3);
+        backdrop-filter: blur(15px);
+    }
+
+    .secret-text {
+        font-family: 'Dancing Script', cursive;
+        font-size: 1.8rem;
+        color: #ffb6c1;
+        margin-bottom: 1rem;
+    }
+
+    .eternal-heart {
+        font-size: 2rem;
+        animation: eternalGlow 3s ease-in-out infinite;
+    }
+
+    /* Forever Promise */
+    .forever-promise {
+        margin-top: 4rem;
+        text-align: center;
+        opacity: 0;
+        animation: fadeInUp 1s ease forwards 3.5s;
+    }
+
+    .promise-ring {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 1.5rem;
+    }
+
+    .ring {
+        width: 60px;
+        height: 60px;
+        border: 2px solid #ff69b4;
+        border-radius: 50%;
+        position: relative;
+        animation: ringRotate 10s linear infinite;
+    }
+
+    .ring::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 40px;
+        height: 40px;
+        border: 1px solid #ffb6c1;
+        border-radius: 50%;
+    }
+
+    .sparkle {
+        position: absolute;
+        font-size: 1rem;
+        animation: sparkleFloat 3s ease-in-out infinite;
+    }
+
+    .s1 { top: -10px; left: 50%; animation-delay: 0s; }
+    .s2 { top: 50%; right: -10px; animation-delay: 1s; }
+    .s3 { bottom: -10px; left: 50%; animation-delay: 2s; }
+
+    .forever-text {
+        font-size: 1.1rem;
+        color: #b19cd9;
+        font-style: italic;
+    }
+
+    /* Magical Background */
+    .magical-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+    }
+
+    .floating-star {
+        position: absolute;
+        font-size: 1.5rem;
+        opacity: 0.3;
+        animation: starFloat 15s linear infinite;
+    }
+
+    .floating-star:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+    .floating-star:nth-child(2) { top: 20%; right: 15%; animation-delay: 3s; }
+    .floating-star:nth-child(3) { bottom: 30%; left: 20%; animation-delay: 6s; }
+    .floating-star:nth-child(4) { bottom: 20%; right: 10%; animation-delay: 9s; }
+    .floating-star:nth-child(5) { top: 40%; left: 5%; animation-delay: 12s; }
+    .floating-star:nth-child(6) { top: 60%; right: 5%; animation-delay: 15s; }
+
+    /* Infinite Love Animation */
+    .infinite-love {
+        position: absolute;
+        bottom: 2rem;
+        right: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .love-symbol {
+        font-family: 'Dancing Script', cursive;
+        font-size: 3rem;
+        color: #ff69b4;
+        position: relative;
+        z-index: 2;
+        animation: lovePulse 4s ease-in-out infinite;
+    }
+
+    .pulse-ring {
+        position: absolute;
+        border: 1px solid #ff69b4;
+        border-radius: 50%;
+        animation: pulseExpand 3s linear infinite;
+    }
+
+    .r1 { width: 60px; height: 60px; animation-delay: 0s; }
+    .r2 { width: 60px; height: 60px; animation-delay: 1s; }
+    .r3 { width: 60px; height: 60px; animation-delay: 2s; }
+
+    /* Animations */
+    @keyframes twinkle {
+        0%, 100% { opacity: 0.3; }
+        50% { opacity: 0.6; }
+    }
+
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes letterReveal {
+        0% {
+            opacity: 0;
+            transform: translateY(50px) rotate(-10deg);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0) rotate(0deg);
+        }
+    }
+
+    @keyframes heartTrail {
+        0% {
+            opacity: 1;
+            transform: scale(0) translateY(0);
+        }
+        50% {
+            opacity: 0.7;
+            transform: scale(1) translateY(-20px);
+        }
+        100% {
+            opacity: 0;
+            transform: scale(0.5) translateY(-40px);
+        }
+    }
+
+    @keyframes secretReveal {
+        0% {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        50% {
+            transform: scale(1.05);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes eternalGlow {
+        0%, 100% {
+            opacity: 0.7;
+            transform: scale(1);
+        }
+        50% {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+    }
+
+    @keyframes ringRotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+
+    @keyframes sparkleFloat {
+        0%, 100% {
+            transform: translateY(0) scale(1);
+            opacity: 0.7;
+        }
+        50% {
+            transform: translateY(-10px) scale(1.2);
+            opacity: 1;
+        }
+    }
+
+    @keyframes starFloat {
+        0% {
+            transform: translate(0, 0) rotate(0deg);
+        }
+        25% {
+            transform: translate(50px, 30px) rotate(90deg);
+        }
+        50% {
+            transform: translate(20px, 60px) rotate(180deg);
+        }
+        75% {
+            transform: translate(-30px, 40px) rotate(270deg);
+        }
+        100% {
+            transform: translate(0, 0) rotate(360deg);
+        }
+    }
+
+    @keyframes lovePulse {
+        0%, 100% {
+            transform: scale(1);
+            opacity: 0.8;
+        }
+        50% {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+    }
+
+    @keyframes pulseExpand {
+        0% {
+            transform: scale(0.8);
+            opacity: 1;
+        }
+        100% {
+            transform: scale(2);
+            opacity: 0;
+        }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .ending-section {
+            padding: 4rem 1rem;
+        }
+        
+        .main-closing {
+            font-size: 3rem;
+        }
+        
+        .name-display {
+            font-size: 2.5rem;
+        }
+        
+        .thought-bubble {
+            padding: 1.5rem;
+        }
+        
+        .ending-actions {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .memory-btn, .visit-btn {
+            width: 100%;
+            max-width: 250px;
+        }
+        
+        .infinite-love {
+            bottom: 1rem;
+            right: 1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .main-closing {
+            font-size: 2.2rem;
+        }
+        
+        .closing-text {
+            font-size: 1.2rem;
+        }
+        
+        .promise-text {
+            font-size: 1.1rem;
+        }
+        
+        .name-display {
+            font-size: 2rem;
+        }
+        
+        .thought-text {
+            font-size: 1rem;
+        }
+        
+        .secret-text {
+            font-size: 1.4rem;
+        }
+    }
+</style>
+
+<script>
+    // Ending Section Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const nameDisplay = document.getElementById('nameDisplay');
+        const heartTrail = document.querySelector('.heart-trail-animation');
+        const secretMessage = document.getElementById('secretMessage');
+        const addMemoryBtn = document.getElementById('addMemoryBtn');
+        const visitAgainBtn = document.getElementById('visitAgainBtn');
+        
+        // Replace with her actual name
+        const herName = "My Love";
+        
+        // Animate name with heart trail
+        function animateName() {
+            nameDisplay.innerHTML = '';
+            const letters = herName.split('');
+            
+            letters.forEach((letter, index) => {
+                const span = document.createElement('span');
+                span.className = 'name-letter';
+                span.textContent = letter === ' ' ? '\u00A0' : letter;
+                span.style.animationDelay = `${index * 0.2}s`;
+                nameDisplay.appendChild(span);
+                
+                // Create heart trail for each letter
+                setTimeout(() => {
+                    createHeartTrail(span);
+                }, index * 200);
+            });
+            
+            // Reveal secret message after name animation
+            setTimeout(() => {
+                secretMessage.classList.add('revealed');
+            }, (letters.length * 200) + 1000);
+        }
+        
+        function createHeartTrail(element) {
+            const rect = element.getBoundingClientRect();
+            const containerRect = nameDisplay.getBoundingClientRect();
+            
+            for (let i = 0; i < 3; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'trail-heart';
+                    heart.textContent = '💖';
+                    heart.style.left = `${rect.left - containerRect.left + rect.width / 2}px`;
+                    heart.style.top = `${rect.bottom - containerRect.top}px`;
+                    heart.style.animationDelay = `${i * 0.2}s`;
+                    heartTrail.appendChild(heart);
+                    
+                    // Remove heart after animation
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 2000);
+                }, i * 200);
+            }
+        }
+        
+        // Button functionality
+        addMemoryBtn.addEventListener('click', function() {
+            // Create a beautiful save animation
+            this.innerHTML = '💾 Saved!';
+            this.style.background = 'rgba(255, 105, 180, 0.3)';
+            
+            // Create save confirmation effect
+            const saveEffect = document.createElement('div');
+            saveEffect.style.position = 'fixed';
+            saveEffect.style.top = '50%';
+            saveEffect.style.left = '50%';
+            saveEffect.style.transform = 'translate(-50%, -50%)';
+            saveEffect.style.fontSize = '2rem';
+            saveEffect.style.color = '#ff69b4';
+            saveEffect.style.zIndex = '1000';
+            saveEffect.textContent = 'Memory Saved Forever 💫';
+            saveEffect.style.animation = 'fadeInUp 1s ease forwards';
+            document.body.appendChild(saveEffect);
+            
+            setTimeout(() => {
+                saveEffect.style.animation = 'fadeOut 1s ease forwards';
+                setTimeout(() => {
+                    document.body.removeChild(saveEffect);
+                }, 1000);
+            }, 2000);
+            
+            setTimeout(() => {
+                this.innerHTML = '💾 Save This Moment';
+                this.style.background = '';
+            }, 3000);
+        });
+        
+        visitAgainBtn.addEventListener('click', function() {
+            // Create a portal-like animation
+            this.innerHTML = '🌟 Portal Opening...';
+            
+            // Create portal effect
+            const portal = document.createElement('div');
+            portal.style.position = 'fixed';
+            portal.style.top = '0';
+            portal.style.left = '0';
+            portal.style.width = '100%';
+            portal.style.height = '100%';
+            portal.style.background = 'radial-gradient(circle, transparent 20%, #1a1a2e 70%)';
+            portal.style.zIndex = '1000';
+            portal.style.animation = 'portalOpen 2s ease forwards';
+            document.body.appendChild(portal);
+            
+            setTimeout(() => {
+                // Scroll to top to restart the experience
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+                setTimeout(() => {
+                    portal.style.animation = 'portalClose 1s ease forwards';
+                    setTimeout(() => {
+                        document.body.removeChild(portal);
+                        this.innerHTML = '🌟 Visit Anytime';
+                    }, 1000);
+                }, 1000);
+            }, 2000);
+        });
+        
+        // Add portal animations
+        const portalStyle = document.createElement('style');
+        portalStyle.textContent = `
+            @keyframes portalOpen {
+                0% {
+                    transform: scale(0);
+                    opacity: 0;
+                }
+                50% {
+                    opacity: 1;
+                }
+                100% {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+            
+            @keyframes portalClose {
+                0% {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+                50% {
+                    opacity: 1;
+                }
+                100% {
+                    transform: scale(0);
+                    opacity: 0;
+                }
+            }
+            
+            @keyframes fadeOut {
+                to {
+                    opacity: 0;
+                    transform: translate(-50%, -60px);
+                }
+            }
+        `;
+        document.head.appendChild(portalStyle);
+        
+        // Initialize animations when section comes into view
+        const endingSection = document.getElementById('ending');
+        const endingObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateName();
+                    endingObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        
+        if (endingSection) {
+            endingObserver.observe(endingSection);
+        }
+        
+        // Add floating interaction
+        document.addEventListener('mousemove', function(e) {
+            const stars = document.querySelectorAll('.floating-star');
+            stars.forEach((star, index) => {
+                const speed = (index + 1) * 0.0002;
+                const x = (e.clientX * speed);
+                const y = (e.clientY * speed);
+                star.style.transform = `translate(${x}px, ${y}px)`;
+            });
+        });
+    });
+</script>    
+
+
+    <script src="index.js"></script>
+</body>
+</html>

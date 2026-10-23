@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You, My Love</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="hearts-container" id="heartsContainer"></div>
+    
+<!-- Add this section after the love letters section -->
+<section class="proposal-section" id="proposal">
+    <div class="container">
+        <!-- Initial Message -->
+        <div class="message-stage active" id="stage1">
+            <div class="heart-background">
+                <div class="heart-pulse"></div>
+                <div class="heart-pulse delay-1"></div>
+                <div class="heart-pulse delay-2"></div>
+            </div>
+            
+            <div class="message-content">
+                <div class="message-text">
+                    <p class="intro-text">After all these beautiful moments together...</p>
+                    <h1 class="main-message">There's something important<br>I've been wanting to ask you</h1>
+                    <p class="sub-message">Something that's been on my heart for a while now</p>
+                </div>
+                
+                <div class="next-button-container">
+                    <button class="next-btn" id="nextToProposal">
+                        <span>Continue</span>
+                        <div class="heart-trail">
+                            <span>💕</span>
+                            <span>💖</span>
+                            <span>💝</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Proposal Message -->
+        <div class="message-stage" id="stage2">
+            <div class="proposal-content">
+                <div class="proposal-text">
+                    <p class="proposal-intro">You mean everything to me</p>
+                    <h1 class="proposal-question">
+                        <span class="question-text">Will you be my</span>
+                        <span class="highlight-text">girlfriend?</span>
+                        <span class="heart-emoji">❤️</span>
+                    </h1>
+                    <p class="proposal-subtext">Make me the happiest person in the world</p>
+                </div>
+
+                <div class="response-buttons">
+                    <button class="response-btn yes-btn" id="yesBtn">
+                        <span class="btn-text">Yes, Absolutely! 💕</span>
+                        <div class="btn-sparkles">
+                            <span>✨</span>
+                            <span>🌟</span>
+                            <span>⭐</span>
+                        </div>
+                    </button>
+                    
+                    <button class="response-btn no-btn" id="noBtn">
+                        <span class="btn-text">No 😅</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Yes Response -->
+        <div class="message-stage" id="stage3">
+            <div class="celebration-content">
+                <div class="confetti-container"></div>
+                <div class="floating-hearts"></div>
+                
+                <div class="celebration-text">
+                    <h1 class="celebration-title">You Said Yes! 🎉</h1>
+                    <p class="celebration-message">
+                        <span class="message-line">You just made me the happiest guy alive! 💖</span>
+                        <span class="message-line">This is the beginning of our beautiful journey together</span>
+                        <span class="message-line">I promise to cherish every moment with you</span>
+                    </p>
+                </div>
+
+                <div class="celebration-actions">
+                    <button class="celebration-btn" id="restartBtn">
+                        Relive This Moment 💫
+                    </button>
+                    <button class="celebration-btn secondary" id="memoriesBtn">
+                        Let's Move 📸
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Romantic Background Elements -->
+    <div class="romantic-elements">
+        <div class="floating-element">💖</div>
+        <div class="floating-element">💕</div>
+        <div class="floating-element">💝</div>
+        <div class="floating-element">💘</div>
+        <div class="floating-element">💓</div>
+        <div class="floating-element">💗</div>
+    </div>
+</section>
+
+<style>
+    /* Proposal Section Styles */
+    .proposal-section {
+        padding: 5rem 2rem;
+        background: linear-gradient(135deg, #ffeff7 0%, #ffd6e7 50%, #ffc2d6 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .message-stage {
+        display: none;
+        width: 100%;
+        max-width: 800px;
+        text-align: center;
+    }
+
+    .message-stage.active {
+        display: block;
+        animation: fadeInScale 1s ease-out;
+    }
+
+    /* Heart Background Animation */
+    .heart-background {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 200px;
+        height: 200px;
+        z-index: 1;
+    }
+
+    .heart-pulse {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100px;
+        height: 100px;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ff7eb3" opacity="0.3"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat center;
+        background-size: contain;
+        animation: heartBeat 2s ease-in-out infinite;
+    }
+
+    .heart-pulse.delay-1 {
+        animation-delay: 0.7s;
+        opacity: 0.2;
+    }
+
+    .heart-pulse.delay-2 {
+        animation-delay: 1.4s;
+        opacity: 0.1;
+    }
+
+    /* Stage 1 - Initial Message */
+    .message-content {
+        position: relative;
+        z-index: 2;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 4rem 3rem;
+        border-radius: 30px;
+        box-shadow: 0 20px 60px rgba(138, 75, 118, 0.2);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    .intro-text {
+        font-size: 1.3rem;
+        color: #8a4b76;
+        margin-bottom: 1.5rem;
+        font-weight: 300;
+        font-style: italic;
+        opacity: 0;
+        animation: fadeInUp 0.8s ease forwards 0.5s;
+    }
+
+    .main-message {
+        font-family: 'Dancing Script', cursive;
+        font-size: 3.5rem;
+        color: #ff7eb3;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+        opacity: 0;
+        animation: fadeInUp 0.8s ease forwards 1s;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .sub-message {
+        font-size: 1.2rem;
+        color: #5a3a4d;
+        margin-bottom: 3rem;
+        opacity: 0;
+        animation: fadeInUp 0.8s ease forwards 1.5s;
+    }
+
+    .next-button-container {
+        opacity: 0;
+        animation: fadeInUp 0.8s ease forwards 2s;
+    }
+
+    .next-btn {
+        background: linear-gradient(135deg, #ff7eb3, #ff758c);
+        color: white;
+        border: none;
+        padding: 1.2rem 3rem;
+        border-radius: 50px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.3rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.4s ease;
+        box-shadow: 0 10px 30px rgba(255, 118, 140, 0.4);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .next-btn:hover {
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 15px 40px rgba(255, 118, 140, 0.6);
+    }
+
+    .next-btn:active {
+        transform: translateY(-2px) scale(1.02);
+    }
+
+    .heart-trail {
+        position: absolute;
+        top: 50%;
+        right: -30px;
+        transform: translateY(-50%);
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+
+    .next-btn:hover .heart-trail {
+        right: 20px;
+        opacity: 1;
+    }
+
+    .heart-trail span {
+        display: inline-block;
+        animation: floatHearts 2s ease-in-out infinite;
+        margin-left: 5px;
+    }
+
+    .heart-trail span:nth-child(1) { animation-delay: 0s; }
+    .heart-trail span:nth-child(2) { animation-delay: 0.3s; }
+    .heart-trail span:nth-child(3) { animation-delay: 0.6s; }
+
+    /* Stage 2 - Proposal */
+    .proposal-content {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 4rem 3rem;
+        border-radius: 30px;
+        box-shadow: 0 20px 60px rgba(138, 75, 118, 0.2);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    .proposal-intro {
+        font-size: 1.4rem;
+        color: #8a4b76;
+        margin-bottom: 2rem;
+        font-weight: 300;
+        font-style: italic;
+        opacity: 0;
+        animation: fadeInUp 0.8s ease forwards 0.5s;
+    }
+
+    .proposal-question {
+        font-family: 'Dancing Script', cursive;
+        font-size: 4rem;
+        color: #ff7eb3;
+        margin-bottom: 2rem;
+        line-height: 1.3;
+        opacity: 0;
+        animation: fadeInUp 0.8s ease forwards 1s;
+    }
+
+    .highlight-text {
+        background: linear-gradient(135deg, #ff7eb3, #ff758c);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        display: block;
+        font-size: 5rem;
+        margin: 0.5rem 0;
+    }
+
+    .heart-emoji {
+        display: inline-block;
+        animation: heartBeat 1.5s ease-in-out infinite;
+        margin-left: 1rem;
+    }
+
+    .proposal-subtext {
+        font-size: 1.2rem;
+        color: #5a3a4d;
+        margin-bottom: 3rem;
+        opacity: 0;
+        animation: fadeInUp 0.8s ease forwards 1.5s;
+    }
+
+    .response-buttons {
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        opacity: 0;
+        animation: fadeInUp 0.8s ease forwards 2s;
+    }
+
+    .response-btn {
+        padding: 1.5rem 3rem;
+        border: none;
+        border-radius: 50px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.3rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .yes-btn {
+        background: linear-gradient(135deg, #ff7eb3, #ff758c);
+        color: white;
+        box-shadow: 0 10px 30px rgba(255, 118, 140, 0.4);
+        min-width: 250px;
+    }
+
+    .yes-btn:hover {
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 15px 40px rgba(255, 118, 140, 0.6);
+    }
+
+    .no-btn {
+        background: rgba(255, 255, 255, 0.8);
+        color: #8a4b76;
+        border: 2px solid #ff7eb3;
+        box-shadow: 0 5px 20px rgba(138, 75, 118, 0.2);
+        min-width: 120px;
+        transition: all 0.2s ease;
+    }
+
+    .btn-sparkles {
+        position: absolute;
+        top: 50%;
+        right: -30px;
+        transform: translateY(-50%);
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+
+    .yes-btn:hover .btn-sparkles {
+        right: 20px;
+        opacity: 1;
+    }
+
+    .btn-sparkles span {
+        display: inline-block;
+        animation: sparkleSpin 2s linear infinite;
+        margin-left: 5px;
+    }
+
+    .btn-sparkles span:nth-child(1) { animation-delay: 0s; }
+    .btn-sparkles span:nth-child(2) { animation-delay: 0.2s; }
+    .btn-sparkles span:nth-child(3) { animation-delay: 0.4s; }
+
+    /* Stage 3 - Celebration */
+    .celebration-content {
+        position: relative;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 4rem 3rem;
+        border-radius: 30px;
+        box-shadow: 0 20px 60px rgba(138, 75, 118, 0.2);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        overflow: hidden;
+    }
+
+    .celebration-title {
+        font-family: 'Dancing Script', cursive;
+        font-size: 4rem;
+        color: #ff7eb3;
+        margin-bottom: 2rem;
+        opacity: 0;
+        animation: bounceIn 1s ease forwards 0.5s;
+    }
+
+    .celebration-message {
+        font-size: 1.3rem;
+        color: #5a3a4d;
+        line-height: 1.8;
+        margin-bottom: 3rem;
+        opacity: 0;
+        animation: fadeInUp 0.8s ease forwards 1s;
+    }
+
+    .message-line {
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+
+    .celebration-actions {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        opacity: 0;
+        animation: fadeInUp 0.8s ease forwards 1.5s;
+    }
+
+    .celebration-btn {
+        background: linear-gradient(135deg, #ff7eb3, #ff758c);
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 25px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 20px rgba(255, 118, 140, 0.3);
+    }
+
+    .celebration-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(255, 118, 140, 0.4);
+    }
+
+    .celebration-btn.secondary {
+        background: rgba(255, 255, 255, 0.8);
+        color: #ff7eb3;
+        border: 2px solid #ff7eb3;
+    }
+
+    /* Confetti and Floating Hearts */
+    .confetti-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .floating-hearts {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 2;
+    }
+
+    .confetti {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: #ff7eb3;
+        animation: confettiFall 5s linear forwards;
+    }
+
+    .floating-heart {
+        position: absolute;
+        font-size: 1.5rem;
+        animation: floatUp 6s ease-in forwards;
+    }
+
+    /* Romantic Background Elements */
+    .romantic-elements {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+    }
+
+    .floating-element {
+        position: absolute;
+        font-size: 2rem;
+        opacity: 0.1;
+        animation: romanticFloat 15s linear infinite;
+    }
+
+    .floating-element:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+    .floating-element:nth-child(2) { top: 20%; right: 8%; animation-delay: 3s; }
+    .floating-element:nth-child(3) { bottom: 30%; left: 7%; animation-delay: 6s; }
+    .floating-element:nth-child(4) { bottom: 15%; right: 6%; animation-delay: 9s; }
+    .floating-element:nth-child(5) { top: 45%; right: 15%; animation-delay: 12s; }
+    .floating-element:nth-child(6) { top: 60%; left: 12%; animation-delay: 15s; }
+
+    /* Animations */
+    @keyframes heartBeat {
+        0%, 100% {
+            transform: translate(-50%, -50%) scale(1);
+        }
+        25% {
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        50% {
+            transform: translate(-50%, -50%) scale(1);
+        }
+        75% {
+            transform: translate(-50%, -50%) scale(1.05);
+        }
+    }
+
+    @keyframes fadeInScale {
+        0% {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes bounceIn {
+        0% {
+            opacity: 0;
+            transform: scale(0.3);
+        }
+        50% {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+        70% {
+            transform: scale(0.9);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes floatHearts {
+        0%, 100% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    @keyframes sparkleSpin {
+        0% {
+            transform: rotate(0deg) scale(1);
+        }
+        50% {
+            transform: rotate(180deg) scale(1.2);
+        }
+        100% {
+            transform: rotate(360deg) scale(1);
+        }
+    }
+
+    @keyframes confettiFall {
+        0% {
+            transform: translateY(-100px) rotate(0deg);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(1000px) rotate(720deg);
+            opacity: 0;
+        }
+    }
+
+    @keyframes floatUp {
+        0% {
+            transform: translateY(100px) scale(0);
+            opacity: 0;
+        }
+        20% {
+            opacity: 1;
+        }
+        80% {
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(-1000px) scale(1.5);
+            opacity: 0;
+        }
+    }
+
+    @keyframes romanticFloat {
+        0%, 100% {
+            transform: translate(0, 0) rotate(0deg);
+        }
+        25% {
+            transform: translate(50px, 30px) rotate(90deg);
+        }
+        50% {
+            transform: translate(20px, 60px) rotate(180deg);
+        }
+        75% {
+            transform: translate(-30px, 40px) rotate(270deg);
+        }
+    }
+
+    /* No Button Run Away Animation */
+    /* Previously the No button would "run away" by changing position.
+       That behavior has been removed so the button stays stationary.
+       We keep a subtle shake animation in JS when needed. */
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .proposal-section {
+            padding: 3rem 1rem;
+        }
+        
+        .message-content,
+        .proposal-content,
+        .celebration-content {
+            padding: 3rem 2rem;
+        }
+        
+        .main-message {
+            font-size: 2.8rem;
+        }
+        
+        .proposal-question {
+            font-size: 3rem;
+        }
+        
+        .highlight-text {
+            font-size: 3.5rem;
+        }
+        
+        .celebration-title {
+            font-size: 3rem;
+        }
+        
+        .response-buttons {
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .response-btn {
+            width: 100%;
+            max-width: 300px;
+        }
+        
+        .celebration-actions {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .celebration-btn {
+            width: 100%;
+            max-width: 250px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .message-content,
+        .proposal-content,
+        .celebration-content {
+            padding: 2rem 1.5rem;
+        }
+        
+        .main-message {
+            font-size: 2.2rem;
+        }
+        
+        .proposal-question {
+            font-size: 2.5rem;
+        }
+        
+        .highlight-text {
+            font-size: 2.8rem;
+        }
+        
+        .celebration-title {
+            font-size: 2.5rem;
+        }
+        
+        .celebration-message {
+            font-size: 1.1rem;
+        }
+        
+        .intro-text,
+        .proposal-intro {
+            font-size: 1.1rem;
+        }
+    }
+</style>
+
+<script>
+    // Proposal Section Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const stages = document.querySelectorAll('.message-stage');
+        const nextBtn = document.getElementById('nextToProposal');
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const restartBtn = document.getElementById('restartBtn');
+        const memoriesBtn = document.getElementById('memoriesBtn');
+        const confettiContainer = document.querySelector('.confetti-container');
+        const floatingHearts = document.querySelector('.floating-hearts');
+
+        let noClickCount = 0;
+        const noButtonTexts = [
+    "Are you sure? 😢",
+    "Maybe think about it? 💭",
+    "Pretty please? 🥺",
+    "You're breaking my heart 💔",
+    "Try again 😜",
+    "I'm not giving up! 💪",
+    "You know you want to say yes 😊",
+    "Last chance before I cry! 😭",
+    "Okay, I'll accept maybe? 🤔",
+    "Fine, I'll ask again tomorrow! 😘",
+    "I’ll jump inside water ooo 🏊‍♂️😭",
+    "Abeg na 😩",
+    "You dey whine me ni? 😂",
+    "Even Google no fit understand this ‘No’ 😭",
+    "Omo this ‘No’ pain me for chest 💔",
+    "You wan make I write song for you? 🎶",
+    "No be play o, my heart dey shake 🫣",
+    "If you press no again, I go faint 😵",
+    "You no dey fear God? 😭 say Yes jare!",
+    "My mama go hear this o 😤",
+    "Shey na joke you dey joke abi you mean am? 😭",
+    "You dey test my patience abi 😅",
+    "See your fine face, how you go talk no? 😍",
+    "Even angels dey beg you, say yes abeg 🙏",
+    "I go report you to Cupid 💘",
+    "Na spiritual attack be this 😭",
+    "Omo you wicked small sha 😭😂",
+    "You wan make me go dey drink garri alone? 🥺",
+    "If you say no again, I go off light 😤💡",
+    "Shey na by force? (Yes, e be by force 😜)",
+    "Abeg make we no fight 😭",
+    "You wan trend abi? 😂",
+    "Even your future self go regret this no 😅",
+    "God abeg touch her heart 🙏😭",
+    "I no fit breathe o, say yes make I live 😩",
+    "If you say no again, I go relocate 😭✈️",
+    "Wetin I do you now? 🥺",
+    "This no dey make sense again o 😭",
+    "Abeg, just pity person 😢",
+    "I don dey dream wedding already o 💍😂",
+    "You go still say yes las las 😎",
+    "Na you stubborn pass me 😂",
+    "You no wan make our pikin fine abi? 😭",
+    "If you say yes, I go buy you shawarma 🍗",
+    "You say no but your heart dey say yes 💖",
+    "You sure say you no dey blush? 😏",
+    "Ahn ahn, which kind wickedness be this? 😭",
+    "Na juju go settle this one 😅",
+    "Wait first, make I call pastor 😭🙏",
+    "You dey use me do April fool abi? 😭",
+    "If na exam, you don pass wickedness 100% 📚😂",
+    "Even ChatGPT no fit explain this no 😭",
+    "Abeg, my data dey finish, just say yes 😅",
+    "My phone battery wan die, gimme yes before e off ⚡",
+    "You wan make me go back to streets abi? 😩",
+    "If you no say yes, I go cry in 3 languages 😭😭😭",
+    "Ahn ahn, shey you dey play hard to get ni? 😏",
+    "No be by force o… but e still be by force 😂",
+    "You too fine to dey talk no 😍",
+    "Even my village people dey beg you 😭",
+    "Na spiritual warfare I dey fight here 😭💪",
+    "I don send prayer request for you already 🙏😂",
+    "Okay fine 😒 … but still say yes 🥺",
+    "You don win, I give up 😭 (but not really 😜)",
+    "I go just carry placard stand for your house 😅",
+    "This no dey enter my ear again 😂",
+    "Abeg na, just press yes make we rest 😭",
+    "Omo, you stubborn pass network wey no gree connect 😭📶",
+    "Say yes make I no delete this website 😤😂",
+    "No wey no be mistake 😏",
+    "Even God go nod if you press yes 😇",
+    "Okay o… but you still like me sha 😌",
+    "If you press no again, I go turn this button disappear 😤",
+    "You dey try my patience like NEPA light 😭",
+    "Fine girl, abeg stop to dey play 😍",
+    "I go change this button to ‘Yes Only’ o 😅",
+    "You wan see magic? Press yes ✨",
+    "This your no don expire since 😎",
+    "You go still marry me las las 😌💍",
+    "E pain me reach bone 😭",
+    "You dey whine me abi you dey whine Jesus? 😭😂",
+    "Na yes we go collect by fire by force 🔥😂",
+    "I swear this button go cry soon 😅",
+    "Say yes make we write love story together 📖❤️",
+    "If you press no again, I go do push-up till you say yes 😩",
+    "You wan make me sing ‘Lonely’ by Akon abi? 🎤😭",
+    "This no dey load well o, check your network 😅",
+    "Na only you fit stress me like this 😩😂",
+    "You say no but your smile talk yes 😍",
+    "My village people go think say na curse 😭",
+    "Shey you dey reason me at all? 😢",
+    "This one na emotional damage 😭😭😭",
+    "Okay, I go ask again in 3...2...1... 😏"
+];
+
+
+        // Next button functionality
+        nextBtn.addEventListener('click', function() {
+            switchStage('stage1', 'stage2');
+            
+            // Add button click animation
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+        });
+
+        // Yes button functionality
+        yesBtn.addEventListener('click', function() {
+            switchStage('stage2', 'stage3');
+            createCelebration();
+            
+            // Add celebration effect to button
+            this.style.animation = 'heartBeat 0.6s ease';
+            setTimeout(() => {
+                this.style.animation = '';
+            }, 600);
+        });
+
+        // No button functionality (playful)
+        noBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            noClickCount++;
+            
+            if (noClickCount >= 3) {
+                // After repeated clicks we no longer move the button around.
+                // Instead show a playful shake so it's stationary but still
+                // gives feedback.
+                this.style.animation = 'shake 0.5s ease';
+                setTimeout(() => {
+                    this.style.animation = '';
+                }, 500);
+            }
+            
+            // Change button text
+            const textIndex = Math.min(noClickCount - 1, noButtonTexts.length - 1);
+            if (noClickCount <= noButtonTexts.length) {
+                this.querySelector('.btn-text').textContent = noButtonTexts[textIndex];
+            }
+            
+            // Shake animation
+            this.style.animation = 'shake 0.5s ease';
+            setTimeout(() => {
+                this.style.animation = '';
+            }, 500);
+            
+            // Make yes button more appealing
+            yesBtn.style.transform = 'scale(1.1)';
+            setTimeout(() => {
+                yesBtn.style.transform = 'scale(1.05)';
+            }, 200);
+        });
+
+        // Restart functionality
+        restartBtn.addEventListener('click', function() {
+            switchStage('stage3', 'stage1');
+            resetProposal();
+        });
+
+        // Memories button functionality
+        memoriesBtn.addEventListener('click', function() {
+            // Scroll to gallery section
+            const gallerySection = document.getElementById('gallery');
+            if (gallerySection) {
+                gallerySection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+
+        // Hover intentionally does not reposition the No button to keep it
+        // stationary while its text changes.
+
+        // Stage switching function
+        function switchStage(fromStage, toStage) {
+            const currentStage = document.getElementById(fromStage);
+            const nextStage = document.getElementById(toStage);
+            
+            currentStage.classList.remove('active');
+            currentStage.style.animation = 'fadeOut 0.5s ease forwards';
+            
+            setTimeout(() => {
+                nextStage.classList.add('active');
+                nextStage.style.animation = 'fadeInScale 1s ease forwards';
+            }, 500);
+        }
+
+        // Celebration effects
+        function createCelebration() {
+            createConfetti();
+            createFloatingHearts();
+            playCelebrationSound();
+        }
+
+        function createConfetti() {
+            const colors = ['#ff7eb3', '#ff758c', '#ff6fa7', '#ff85a1', '#ff97b7'];
+            const confettiCount = 150;
+            
+            for (let i = 0; i < confettiCount; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDelay = Math.random() * 5 + 's';
+                confetti.style.width = Math.random() * 10 + 5 + 'px';
+                confetti.style.height = Math.random() * 10 + 5 + 'px';
+                confettiContainer.appendChild(confetti);
+                
+                // Remove confetti after animation
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
+        }
+
+        function createFloatingHearts() {
+            const heartCount = 50;
+            const heartEmojis = ['💕', '💖', '💝', '💘', '💓', '💗', '💞', '💟'];
+            
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'floating-heart';
+                heart.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDelay = Math.random() * 6 + 's';
+                heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+                floatingHearts.appendChild(heart);
+                
+                // Remove heart after animation
+                setTimeout(() => {
+                    heart.remove();
+                }, 6000);
+            }
+        }
+
+        function playCelebrationSound() {
+            // Create a simple celebration sound using Web Audio API
+            try {
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.frequency.setValueAtTime(523.25, audioContext.currentTime); // C5
+                oscillator.frequency.setValueAtTime(659.25, audioContext.currentTime + 0.1); // E5
+                oscillator.frequency.setValueAtTime(783.99, audioContext.currentTime + 0.2); // G5
+                
+                gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+                
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 0.5);
+            } catch (e) {
+                console.log('Web Audio API not supported');
+            }
+        }
+
+        function resetProposal() {
+            noClickCount = 0;
+            noBtn.querySelector('.btn-text').textContent = 'No 😅';
+            noBtn.style.position = '';
+            noBtn.style.left = '';
+            noBtn.style.top = '';
+            
+            // Clear celebration elements
+            confettiContainer.innerHTML = '';
+            floatingHearts.innerHTML = '';
+        }
+
+        // Add shake animation for no button
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                25% { transform: translateX(-10px); }
+                75% { transform: translateX(10px); }
+            }
+            
+            @keyframes fadeOut {
+                to {
+                    opacity: 0;
+                    transform: scale(1.1);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Initial animations
+        setTimeout(() => {
+            document.querySelectorAll('.intro-text, .main-message, .sub-message, .next-button-container').forEach(el => {
+                if (el.style.animation) {
+                    el.style.animation = el.style.animation;
+                }
+            });
+        }, 100);
+    });
+
+                // Button click handler
+        document.getElementById('memoriesBtn').addEventListener('click', function() {
+            // Add a ripple effect
+            this.innerHTML = "Let's Meuveeee...";
+            this.style.transform = "scale(0.95)";
+            
+            // In a real implementation, this would navigate to the next section
+            setTimeout(() => {
+                this.innerHTML = "Let's Meuveeee";
+                this.style.transform = "scale(1)";
+                window.location.href = "/end.html"; // Placeholder for navigation
+            }, 1500);
+        });
+
+</script>    
+
+
+    <script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You, My Love</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="hearts-container" id="heartsContainer"></div>
+    
+<!-- Add this section after the previous sections -->
+<section class="gallery-section" id="gallery">
+    <div class="container">
+        <h2 class="section-title">Our Beautiful Moments</h2>
+        <p class="section-subtitle">Every picture tells a story, and every story is about you</p>
+        
+        <!-- Filter Tabs -->
+        <div class="gallery-filter">
+            <button class="filter-btn active" data-filter="all">All Memories</button>
+            <button class="filter-btn" data-filter="photos">Photos</button>
+            <button class="filter-btn" data-filter="videos">Videos</button>
+            <button class="filter-btn" data-filter="favorites">Favorites</button>
+        </div>
+        
+        <!-- Gallery Grid -->
+        <div class="gallery-grid" id="gallery-container">
+            <!-- Photo 1 -->
+            <div class="gallery-item photo" data-favorite="true">
+                <div class="media-wrapper">
+                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Beautiful moment" class="media">
+                    <div class="media-overlay">
+                        <button class="favorite-btn active">❤️</button>
+                        <button class="expand-btn">🔍</button>
+                    </div>
+                </div>
+                <div class="media-caption">"This one — you didn't even know I was taking it. Pure magic."</div>
+            </div>
+            
+            <!-- Video 1 -->
+            <div class="gallery-item video" data-favorite="false">
+                <div class="media-wrapper">
+                    <div class="video-container">
+                        <video class="media" poster="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80">
+                            <source src="#" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="video-play-btn">▶</div>
+                    </div>
+                    <div class="media-overlay">
+                        <button class="favorite-btn">❤️</button>
+                        <button class="expand-btn">🔍</button>
+                    </div>
+                </div>
+                <div class="media-caption">"The way you laugh in this video? Absolutely priceless."</div>
+            </div>
+            
+            <!-- Photo 2 -->
+            <div class="gallery-item photo" data-favorite="true">
+                <div class="media-wrapper">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Smiling beautifully" class="media">
+                    <div class="media-overlay">
+                        <button class="favorite-btn active">❤️</button>
+                        <button class="expand-btn">🔍</button>
+                    </div>
+                </div>
+                <div class="media-caption">"That smile could brighten even the darkest day."</div>
+            </div>
+            
+            <!-- Photo 3 -->
+            <div class="gallery-item photo" data-favorite="false">
+                <div class="media-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Candid moment" class="media">
+                    <div class="media-overlay">
+                        <button class="favorite-btn">❤️</button>
+                        <button class="expand-btn">🔍</button>
+                    </div>
+                </div>
+                <div class="media-caption">"Caught in your element - this is my favorite version of you."</div>
+            </div>
+            
+            <!-- Video 2 -->
+            <div class="gallery-item video" data-favorite="true">
+                <div class="media-wrapper">
+                    <div class="video-container">
+                        <video class="media" poster="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80">
+                            <source src="#" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="video-play-btn">▶</div>
+                    </div>
+                    <div class="media-overlay">
+                        <button class="favorite-btn active">❤️</button>
+                        <button class="expand-btn">🔍</button>
+                    </div>
+                </div>
+                <div class="media-caption">"Your energy in this moment is absolutely contagious."</div>
+            </div>
+            
+            <!-- Photo 4 -->
+            <div class="gallery-item photo" data-favorite="false">
+                <div class="media-wrapper">
+                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Beautiful portrait" class="media">
+                    <div class="media-overlay">
+                        <button class="favorite-btn">❤️</button>
+                        <button class="expand-btn">🔍</button>
+                    </div>
+                </div>
+                <div class="media-caption">"Perfection captured in a single frame."</div>
+            </div>
+        </div>
+        
+        <!-- Load More Button -->
+        <div class="load-more-container">
+            <button class="load-more-btn" id="loveletersBtn">You Never Tire? ...</button>
+        </div>
+    </div>
+    
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close">&times;</button>
+            <button class="lightbox-nav lightbox-prev">‹</button>
+            <button class="lightbox-nav lightbox-next">›</button>
+            
+            <div class="lightbox-media">
+                <!-- Content will be injected here -->
+            </div>
+            
+            <div class="lightbox-caption">
+                <!-- Caption will be injected here -->
+            </div>
+            
+            <div class="lightbox-favorite">
+                <button class="lightbox-favorite-btn">❤️</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Gallery Section Styles */
+    .gallery-section {
+        padding: 5rem 2rem;
+        background: linear-gradient(135deg, #fffafb 0%, #fff5f7 100%);
+        min-height: 100vh;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .gallery-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: 
+            radial-gradient(circle at 10% 20%, rgba(255, 182, 193, 0.05) 0%, transparent 50%),
+            radial-gradient(circle at 90% 80%, rgba(255, 192, 203, 0.05) 0%, transparent 50%);
+        pointer-events: none;
+    }
+
+    .section-subtitle {
+        text-align: center;
+        font-size: 1.3rem;
+        color: #8a4b76;
+        margin-bottom: 3rem;
+        font-weight: 300;
+        font-style: italic;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 1s ease forwards 0.5s;
+    }
+
+    .gallery-filter {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 3rem;
+        flex-wrap: wrap;
+    }
+
+    .filter-btn {
+        background: rgba(255, 255, 255, 0.8);
+        border: 2px solid transparent;
+        padding: 0.8rem 1.5rem;
+        border-radius: 25px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1rem;
+        color: #8a4b76;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+    }
+
+    .filter-btn:hover {
+        background: rgba(255, 255, 255, 1);
+        transform: translateY(-2px);
+    }
+
+    .filter-btn.active {
+        background: linear-gradient(135deg, #ff7eb3, #ff758c);
+        color: white;
+        border-color: #ff7eb3;
+        box-shadow: 0 5px 15px rgba(255, 118, 140, 0.3);
+    }
+
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        max-width: 1400px;
+        margin: 0 auto 3rem;
+    }
+
+    .gallery-item {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(138, 75, 118, 0.1);
+        transition: all 0.4s ease;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.8s ease forwards;
+    }
+
+    .gallery-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(138, 75, 118, 0.2);
+    }
+
+    .media-wrapper {
+        position: relative;
+        overflow: hidden;
+        aspect-ratio: 4/5;
+    }
+
+    .media {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+    }
+
+    .gallery-item:hover .media {
+        transform: scale(1.05);
+    }
+
+    .media-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.3));
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 1rem;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .gallery-item:hover .media-overlay {
+        opacity: 1;
+    }
+
+    .favorite-btn, .expand-btn {
+        background: rgba(255, 255, 255, 0.9);
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+    }
+
+    .favorite-btn:hover, .expand-btn:hover {
+        transform: scale(1.1);
+        background: white;
+    }
+
+    .favorite-btn.active {
+        background: #ff7eb3;
+        animation: heartPulse 1s ease;
+    }
+
+    .video-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .video-play-btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 60px;
+        height: 60px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: #ff7eb3;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+    }
+
+    .video-play-btn:hover {
+        background: white;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    .media-caption {
+        padding: 1.5rem;
+        font-style: italic;
+        color: #5a3a4d;
+        text-align: center;
+        background: white;
+        font-size: 1rem;
+        line-height: 1.5;
+        border-top: 1px solid #f0f0f0;
+    }
+
+    .load-more-container {
+        text-align: center;
+    }
+
+    .load-more-btn {
+        background: linear-gradient(135deg, #ff7eb3, #ff758c);
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 25px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(255, 118, 140, 0.3);
+    }
+
+    .load-more-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(255, 118, 140, 0.4);
+    }
+
+    /* Lightbox Styles */
+    .lightbox {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .lightbox.active {
+        display: flex;
+        opacity: 1;
+    }
+
+    .lightbox-content {
+        position: relative;
+        max-width: 90%;
+        max-height: 90%;
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    .lightbox-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        font-size: 1.5rem;
+        cursor: pointer;
+        z-index: 10;
+        transition: all 0.3s ease;
+    }
+
+    .lightbox-close:hover {
+        background: rgba(0, 0, 0, 0.8);
+        transform: scale(1.1);
+    }
+
+    .lightbox-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        font-size: 2rem;
+        cursor: pointer;
+        z-index: 10;
+        transition: all 0.3s ease;
+    }
+
+    .lightbox-prev {
+        left: 1rem;
+    }
+
+    .lightbox-next {
+        right: 1rem;
+    }
+
+    .lightbox-nav:hover {
+        background: rgba(0, 0, 0, 0.8);
+        transform: translateY(-50%) scale(1.1);
+    }
+
+    .lightbox-media {
+        max-width: 100%;
+        max-height: 70vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .lightbox-media img,
+    .lightbox-media video {
+        max-width: 100%;
+        max-height: 70vh;
+        object-fit: contain;
+    }
+
+    .lightbox-caption {
+        padding: 1.5rem;
+        text-align: center;
+        background: white;
+        font-style: italic;
+        color: #5a3a4d;
+        font-size: 1.1rem;
+    }
+
+    .lightbox-favorite {
+        position: absolute;
+        bottom: 1rem;
+        right: 1rem;
+    }
+
+    .lightbox-favorite-btn {
+        background: rgba(255, 255, 255, 0.9);
+        border: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+    }
+
+    .lightbox-favorite-btn.active {
+        background: #ff7eb3;
+        animation: heartPulse 1s ease;
+    }
+
+    .lightbox-favorite-btn:hover {
+        transform: scale(1.1);
+    }
+
+    /* Animations */
+    @keyframes heartPulse {
+        0% {
+            transform: scale(1);
+        }
+        25% {
+            transform: scale(1.3);
+        }
+        50% {
+            transform: scale(1);
+        }
+        75% {
+            transform: scale(1.2);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    @keyframes sparkle {
+        0% {
+            transform: scale(0) rotate(0deg);
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+        }
+        100% {
+            transform: scale(1.5) rotate(180deg);
+            opacity: 0;
+        }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .gallery-grid {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .gallery-filter {
+            gap: 0.5rem;
+        }
+        
+        .filter-btn {
+            padding: 0.6rem 1.2rem;
+            font-size: 0.9rem;
+        }
+        
+        .lightbox-content {
+            max-width: 95%;
+            max-height: 95%;
+        }
+        
+        .lightbox-nav {
+            width: 40px;
+            height: 40px;
+            font-size: 1.5rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .gallery-section {
+            padding: 3rem 1rem;
+        }
+        
+        .gallery-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .media-caption {
+            padding: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .section-subtitle {
+            font-size: 1.1rem;
+        }
+    }
+</style>
+
+<script>
+    // Gallery functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const gallerySection = document.getElementById('gallery');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const favoriteButtons = document.querySelectorAll('.favorite-btn');
+        const expandButtons = document.querySelectorAll('.expand-btn');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxClose = document.querySelector('.lightbox-close');
+        const lightboxPrev = document.querySelector('.lightbox-prev');
+        const lightboxNext = document.querySelector('.lightbox-next');
+        const lightboxFavorite = document.querySelector('.lightbox-favorite-btn');
+        const loadMoreBtn = document.querySelector('.load-more-btn');
+        
+        let currentMediaIndex = 0;
+        let currentMediaItems = [];
+        
+        // Filter functionality
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const filter = this.getAttribute('data-filter');
+                
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Filter items
+                galleryItems.forEach(item => {
+                    if (filter === 'all') {
+                        item.style.display = 'block';
+                    } else if (filter === 'favorites') {
+                        if (item.getAttribute('data-favorite') === 'true') {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    } else {
+                        if (item.classList.contains(filter)) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+        
+        // Favorite button functionality
+        favoriteButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.stopPropagation();
+                this.classList.toggle('active');
+                
+                // Update data attribute on parent item
+                const galleryItem = this.closest('.gallery-item');
+                galleryItem.setAttribute('data-favorite', this.classList.contains('active'));
+                
+                // Add sparkle animation
+                this.style.animation = 'heartPulse 1s ease';
+                setTimeout(() => {
+                    this.style.animation = '';
+                }, 1000);
+            });
+        });
+        
+        // Expand button functionality (lightbox)
+        expandButtons.forEach((button, index) => {
+            button.addEventListener('click', function(e) {
+                e.stopPropagation();
+                openLightbox(index);
+            });
+        });
+        
+        // Media click to open lightbox
+        galleryItems.forEach((item, index) => {
+            item.addEventListener('click', function() {
+                openLightbox(index);
+            });
+        });
+        
+        // Open lightbox function
+        function openLightbox(index) {
+            currentMediaIndex = index;
+            currentMediaItems = Array.from(galleryItems).filter(item => 
+                window.getComputedStyle(item).display !== 'none'
+            );
+            
+            const currentItem = currentMediaItems[currentMediaIndex];
+            const mediaWrapper = currentItem.querySelector('.media-wrapper');
+            const media = mediaWrapper.querySelector('.media');
+            const caption = currentItem.querySelector('.media-caption').textContent;
+            const isFavorite = currentItem.getAttribute('data-favorite') === 'true';
+            
+            // Set lightbox content
+            const lightboxMedia = document.querySelector('.lightbox-media');
+            lightboxMedia.innerHTML = '';
+            
+            if (media.tagName === 'IMG') {
+                const img = document.createElement('img');
+                img.src = media.src;
+                img.alt = media.alt;
+                lightboxMedia.appendChild(img);
+            } else if (media.tagName === 'VIDEO') {
+                const video = document.createElement('video');
+                video.src = media.querySelector('source').src;
+                video.controls = true;
+                video.autoplay = true;
+                lightboxMedia.appendChild(video);
+            }
+            
+            // Set caption
+            document.querySelector('.lightbox-caption').textContent = caption;
+            
+            // Set favorite button state
+            lightboxFavorite.classList.toggle('active', isFavorite);
+            
+            // Show lightbox
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // Close lightbox
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+        
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            
+            // Pause any playing video
+            const video = lightbox.querySelector('video');
+            if (video) {
+                video.pause();
+            }
+        }
+        
+        // Lightbox navigation
+        lightboxPrev.addEventListener('click', function(e) {
+            e.stopPropagation();
+            navigateLightbox(-1);
+        });
+        
+        lightboxNext.addEventListener('click', function(e) {
+            e.stopPropagation();
+            navigateLightbox(1);
+        });
+        
+        function navigateLightbox(direction) {
+            currentMediaIndex += direction;
+            
+            if (currentMediaIndex < 0) {
+                currentMediaIndex = currentMediaItems.length - 1;
+            } else if (currentMediaIndex >= currentMediaItems.length) {
+                currentMediaIndex = 0;
+            }
+            
+            openLightbox(Array.from(galleryItems).indexOf(currentMediaItems[currentMediaIndex]));
+        }
+        
+        // Lightbox favorite button
+        lightboxFavorite.addEventListener('click', function() {
+            this.classList.toggle('active');
+            
+            // Update the original item's favorite state
+            const currentItem = currentMediaItems[currentMediaIndex];
+            const originalFavoriteBtn = currentItem.querySelector('.favorite-btn');
+            originalFavoriteBtn.classList.toggle('active', this.classList.contains('active'));
+            currentItem.setAttribute('data-favorite', this.classList.contains('active'));
+            
+            // Add animation
+            this.style.animation = 'heartPulse 1s ease';
+            setTimeout(() => {
+                this.style.animation = '';
+            }, 1000);
+        });
+        
+        // Load more functionality (simulated)
+        loadMoreBtn.addEventListener('click', function() {
+            this.textContent = 'Loading...';
+            this.disabled = true;
+            
+            // Simulate loading
+            setTimeout(() => {
+                this.textContent = 'All Memories Loaded';
+                this.style.opacity = '0.5';
+            }, 1500);
+        });
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (lightbox.classList.contains('active')) {
+                if (e.key === 'Escape') {
+                    closeLightbox();
+                } else if (e.key === 'ArrowLeft') {
+                    navigateLightbox(-1);
+                } else if (e.key === 'ArrowRight') {
+                    navigateLightbox(1);
+                }
+            }
+        });
+        
+        // Intersection Observer for animations
+        const galleryObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const items = entry.target.querySelectorAll('.gallery-item');
+                    items.forEach((item, index) => {
+                        item.style.animationDelay = `${index * 0.1}s`;
+                        item.style.animation = `fadeInUp 0.8s ease forwards`;
+                    });
+                    galleryObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        if (gallerySection) {
+            galleryObserver.observe(gallerySection);
+        }
+    });
+
+    // Your array of image filenames
+const imageFiles = [
+    "./images/1750249394500.jpg",
+    "./images/1750249912515.jpg",
+    "./images/71986321a7d333a77fbb084dc85bc2b7.jpg",
+    "./images/her.jpg",
+    "./images/IMG-20250705-WA0089.jpg",
+    "./images/IMG-20250705-WA0092.jpg",
+    "./images/IMG-20250705-WA0093.jpg",
+    "./images/IMG-20250706-WA0076.jpg",
+    "./images/IMG-20250706-WA0099.jpg",
+    "./images/IMG-20250706-WA0104.jpg",
+    "./images/IMG-20250706-WA0107.jpg",
+    "./images/IMG-20250706-WA0111.jpg",
+    "./images/IMG-20250710-WA0028.jpg",
+    "./images/IMG-20250710-WA0029.jpg",
+    "./images/IMG-20250720-WA0145.jpg",
+    "./images/IMG-20250720-WA0147.jpg",
+    "./images/IMG-20250721-WA0048.jpg",
+    "./images/IMG-20250721-WA0049.jpg",
+    "./images/IMG-20250724-WA0045.jpg",
+    "./images/IMG-20250727-WA0058.jpg",
+    "./images/IMG-20250727-WA0059.jpg",
+    "./images/IMG-20250727-WA0060.jpg",
+    "./images/IMG-20250810-WA0049.jpg",
+    "./images/IMG-20250810-WA0050.jpg",
+    "./images/IMG-20250810-WA0059.jpg",
+    "./images/IMG-20250810-WA0072.jpg",
+    "./images/IMG-20250814-WA0012.jpg",
+    "./images/IMG-20250814-WA0014.jpg",
+    "./images/IMG-20250829-WA0022.jpg",
+    "./images/IMG-20250831-WA0027.jpg",
+    "./images/IMG-20250831-WA0030.jpg",
+    "./images/IMG-20250915-WA0020.jpg",
+    "./images/IMG-20250915-WA0022.jpg",
+    "./images/IMG-20250915-WA0026.jpg",
+    "./images/IMG-20250928-WA0036.jpg",
+    "./images/IMG-20250928-WA0039.jpg",
+    "./images/IMG-20250928-WA0041.jpg",
+    "./images/IMG-20251008-WA0029.jpg",
+    "./images/IMG-20251008-WA0031.jpg",
+    "./images/IMG-20251008-WA0032.jpg",
+    "./images/IMG-20251008-WA0033.jpg",
+    "./images/IMG-20251022-WA0015.jpg",
+    "./images/IMG-20251022-WA0017.jpg",
+    "./images/IMG-20251022-WA0019.jpg",
+    "./images/IMG-20251025-WA0018.jpg",
+    "./images/IMG_20250519_145527_455.jpg",
+    "./images/IMG_20250519_163714_452.jpg",
+    "./images/IMG_20250528_171211_686.jpg",
+    "./images/IMG_20250530_144846_774.jpg",
+    "./images/IMG_20250530_144857_439.jpg",
+    "./images/IMG_20250604_174826_153.jpg",
+    "./images/IMG_20250604_174834_583.jpg",
+    "./images/IMG_20250604_180617_526.jpg",
+    "./images/IMG_20250604_180626_287.jpg",
+    "./images/IMG_20250604_180747_103.jpg",
+    "./images/IMG_20250605_175918_765.jpg",
+    "./images/IMG_20250605_175929_959.jpg",
+    "./images/IMG_20250605_175941_264.jpg",
+    "./images/IMG_20250605_180012_401.jpg",
+    "./images/IMG_20250611_153738_644.jpg",
+    "./images/IMG_20250618_142946_527.jpg",
+    "./images/IMG_20250618_143007_781.jpg",
+    "./images/IMG_20250718_175723_118.jpg",
+    "./images/IMG_20250926_145733_251.jpg",
+    "./images/IMG_20251017_163452_009.jpg",
+    "./images/Screenshot_20250609-002924.jpg",
+    "./images/Screenshot_20250625-121819.jpg",
+    "./images/Screenshot_20250712-182118.jpg",
+    "./images/Screenshot_20250712-182121.jpg",
+    "./images/Screenshot_20250723-122108.jpg",
+    "./images/Snapchat-1034195401.jpg",
+    "./images/Snapchat-1292237806.jpg",
+    "./images/Snapchat-1319806751.jpg",
+    "./images/Snapchat-1600787750.jpg",
+    "./images/Snapchat-1840992674.jpg",
+    "./images/Snapchat-2068311641.jpg",
+    "./images/Snapchat-29312651.jpg",
+    "./images/Snapchat-324258512.jpg",
+    "./images/Snapchat-326822358.jpg",
+    "./images/Snapchat-56180685.jpg",
+    "./images/Snapchat-747585140.jpg",
+    "./images/Snapchat-839468058.jpg",
+    "./images/Unconfirmed 597417.crdownload",
+    "./images/Unconfirmed 601310.crdownload",
+    "./images/Unconfirmed 865501.crdownload"
+];
+
+// Optional: provide custom captions here. Use the image path (as in the
+// `imageFiles` array) as the key and the caption string as the value.
+// Example: "./images/her.jpg": "My favorite person in the world."
+const customCaptions = {
+    "./images/her.jpg": "My favorite person in the world.",
+    "./images/1750249394500.jpg": "La Hotiee",
+    "./images/1750249912515.jpg": "",
+    "./images/71986321a7d333a77fbb084dc85bc2b7.jpg": "",
+    "./images/her.jpg": "",
+    "./images/IMG-20250705-WA0089.jpg": "",
+    "./images/IMG-20250705-WA0092.jpg": "",
+    "./images/IMG-20250705-WA0093.jpg": "",
+    "./images/IMG-20250706-WA0076.jpg": "",
+    "./images/IMG-20250706-WA0099.jpg": "",
+    "./images/IMG-20250706-WA0104.jpg": "",
+    "./images/IMG-20250706-WA0107.jpg": "",
+    "./images/IMG-20250706-WA0111.jpg": "",
+    "./images/IMG-20250710-WA0028.jpg": "",
+    "./images/IMG-20250710-WA0029.jpg": "",
+    "./images/IMG-20250720-WA0145.jpg": "",
+    "./images/IMG-20250720-WA0147.jpg": "",
+    "./images/IMG-20250721-WA0048.jpg": "",
+    "./images/IMG-20250721-WA0049.jpg": "",
+    "./images/IMG-20250724-WA0045.jpg": "",
+    "./images/IMG-20250727-WA0058.jpg": "",
+    "./images/IMG-20250727-WA0059.jpg": "",
+    "./images/IMG-20250727-WA0060.jpg": "",
+    "./images/IMG-20250810-WA0049.jpg": "",
+    "./images/IMG-20250810-WA0050.jpg": "",
+    "./images/IMG-20250810-WA0059.jpg": "",
+    "./images/IMG-20250810-WA0072.jpg": "",
+    "./images/IMG-20250814-WA0012.jpg": "",
+    "./images/IMG-20250814-WA0014.jpg": "",
+    "./images/IMG-20250829-WA0022.jpg": "",
+    "./images/IMG-20250831-WA0027.jpg": "",
+    "./images/IMG-20250831-WA0030.jpg": "",
+    "./images/IMG-20250915-WA0020.jpg": "",
+    "./images/IMG-20250915-WA0022.jpg": "",
+    "./images/IMG-20250915-WA0026.jpg": "",
+    "./images/IMG-20250928-WA0036.jpg": "",
+    "./images/IMG-20250928-WA0039.jpg": "",
+    "./images/IMG-20250928-WA0041.jpg": "",
+    "./images/IMG-20251008-WA0029.jpg": "",
+    "./images/IMG-20251008-WA0031.jpg": "",
+    "./images/IMG-20251008-WA0032.jpg": "",
+    "./images/IMG-20251008-WA0033.jpg": "",
+    "./images/IMG-20251022-WA0015.jpg": "",
+    "./images/IMG-20251022-WA0017.jpg": "",
+    "./images/IMG-20251022-WA0019.jpg": "",
+    "./images/IMG-20251025-WA0018.jpg": "",
+    "./images/IMG_20250519_145527_455.jpg": "",
+    "./images/IMG_20250519_163714_452.jpg": "",
+    "./images/IMG_20250528_171211_686.jpg": "",
+    "./images/IMG_20250530_144846_774.jpg": "",
+    "./images/IMG_20250530_144857_439.jpg": "",
+    "./images/IMG_20250604_174826_153.jpg": "",
+    "./images/IMG_20250604_174834_583.jpg": "",
+    "./images/IMG_20250604_180617_526.jpg": "",
+    "./images/IMG_20250604_180626_287.jpg": "",
+    "./images/IMG_20250604_180747_103.jpg": "",
+    "./images/IMG_20250605_175918_765.jpg": "",
+    "./images/IMG_20250605_175929_959.jpg": "",
+    "./images/IMG_20250605_175941_264.jpg": "",
+    "./images/IMG_20250605_180012_401.jpg": "",
+    "./images/IMG_20250611_153738_644.jpg": "",
+    "./images/IMG_20250618_142946_527.jpg": "",
+    "./images/IMG_20250618_143007_781.jpg": "",
+    "./images/IMG_20250718_175723_118.jpg": "",
+    "./images/IMG_20250926_145733_251.jpg": "",
+    "./images/IMG_20251017_163452_009.jpg": "",
+    "./images/Screenshot_20250609-002924.jpg": "",
+    "./images/Screenshot_20250625-121819.jpg": "",
+    "./images/Screenshot_20250712-182118.jpg": "",
+    "./images/Screenshot_20250712-182121.jpg": "",
+    "./images/Screenshot_20250723-122108.jpg": "",
+    "./images/Snapchat-1034195401.jpg": "",
+    "./images/Snapchat-1292237806.jpg": "",
+    "./images/Snapchat-1319806751.jpg": "",
+    "./images/Snapchat-1600787750.jpg": "",
+    "./images/Snapchat-1840992674.jpg": "",
+    "./images/Snapchat-2068311641.jpg": "",
+    "./images/Snapchat-29312651.jpg": "",
+    "./images/Snapchat-324258512.jpg": "",
+    "./images/Snapchat-326822358.jpg": "",
+    "./images/Snapchat-56180685.jpg": "",
+    "./images/Snapchat-747585140.jpg": "",
+    "./images/Snapchat-839468058.jpg": "",
+    "./images/Unconfirmed 597417.crdownload": "",
+    "./images/Unconfirmed 601310.crdownload": "",
+    "./images/Unconfirmed 865501.crdownload": "",
+};
+
+// Function to generate HTML for each image
+function generateGalleryHTML(files) {
+    return files.map(file => {
+        // Skip .crdownload files as they're incomplete downloads
+        if (file.includes('.crdownload')) {
+            return '';
+        }
+        
+        // Generate a simple caption based on the filename
+        const caption = generateCaption(file);
+        
+        return `
+            <div class="gallery-item photo" data-favorite="true">
+                <div class="media-wrapper">
+                    <img src="${file}" alt="${caption}" class="media">
+                    <div class="media-overlay">
+                        <button class="favorite-btn active">❤️</button>
+                        <button class="expand-btn">🔍</button>
+                    </div>
+                </div>
+                <div class="media-caption">${caption}</div>
+            </div>
+        `;
+    }).join('');
+}
+
+// Function to generate captions based on filenames
+function generateCaption(filename) {
+    // If user provided a custom caption for this exact path, use it.
+    if (customCaptions && customCaptions[filename]) {
+        return customCaptions[filename];
+    }
+
+    // Normalize to the filename without path for pattern checks
+    const baseName = filename.split('/').pop().replace(/\.[^/.]+$/, "");
+
+    // Generate caption based on filename patterns (fallback)
+    if (baseName.startsWith('IMG-') || baseName.startsWith('IMG_')) {
+        return "A captured moment from our journey together.";
+    } else if (baseName.startsWith('Screenshot_')) {
+        return "Screenshot worth keeping forever.";
+    } else if (baseName.startsWith('Snapchat-')) {
+        return "Snapchat memory preserved.";
+    } else if (baseName === 'her') {
+        return "My favorite person in the world.";
+    } else if (/^\d+$/.test(baseName)) {
+        return "Timeless memory from our story.";
+    } else {
+        return "Another precious moment with you.";
+    }
+}
+
+// Usage: Insert the generated HTML into your gallery container
+const galleryHTML = generateGalleryHTML(imageFiles);
+
+// If you want to see the output in console
+console.log(galleryHTML);
+
+// To actually insert into your page, you would do something like:
+document.getElementById('gallery-container').innerHTML = galleryHTML;
+
+
+            // Button click handler
+        document.getElementById('loveletersBtn').addEventListener('click', function() {
+            // Add a ripple effect
+            this.innerHTML = "You wanna see what i love about you?...";
+            this.style.transform = "scale(0.95)";
+            
+            // In a real implementation, this would navigate to the next section
+            setTimeout(() => {
+                this.innerHTML = "You wanna see what i love about you?";
+                this.style.transform = "scale(1)";
+                window.location.href = "/loveletters.html"; // Placeholder for navigation
+            }, 1500);
+        });
+
+</script>    
+
+
+
+
+    <script src="index.js"></script>
+</body>
+</html>
